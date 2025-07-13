@@ -48,6 +48,7 @@ This node is designed to make it easy to choose a video resolution for your Text
 
 *Usage:*
 
-<img width="566" height="240" alt="Resolution Preset" src="https://github.com/user-attachments/assets/d69d9c4d-6806-497f-a759-31fd951db08a" />
+<img width="1743" height="754" alt="Usage2" src="https://github.com/user-attachments/assets/e7eff2b7-5ef7-4847-9e98-0af7138c4ba8" />
+
 
 Just plug this into your workflow and use the width and height outputs to drive the latent image or video generation.  
