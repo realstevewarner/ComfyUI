@@ -2,31 +2,31 @@ class WanResolutionPresets:
     def __init__(self):
         self.name = "WanResolutionPresets"
         
-        # Resolution groups from WanImageToVideoScaler
+        # Updated resolution groups ensuring all dimensions are divisible by 64 (matches WanImageToVideoScaler)
         self.resolution_groups = {
             "1080p": {
-                "21:9": ["2560x1080", "1080x2560"],
-                "16:9": ["1920x1080", "1080x1920"],
-                "4:3": ["1440x1080", "1080x1440"],
-                "1:1": ["1080x1080"]
+                "21:9": ["2560x1088", "1088x2560"],
+                "16:9": ["1920x1088", "1088x1920"],
+                "4:3": ["1456x1088", "1088x1456"],  # Adjusted to be divisible by 64
+                "1:1": ["1088x1088"]
             },
             "720p": {
-                "21:9": ["1706x720", "720x1706"],
-                "16:9": ["1280x720", "720x1280"],
-                "4:3": ["960x720", "720x960"],
-                "1:1": ["720x720"]
+                "21:9": ["1728x704", "704x1728"],   # Adjusted width to be divisible by 64
+                "16:9": ["1280x704", "704x1280"],
+                "4:3": ["960x704", "704x960"],
+                "1:1": ["704x704"]
             },
             "540p": {
-                "21:9": ["1280x540", "540x1280"],
-                "16:9": ["960x540", "540x960"],
-                "4:3": ["720x540", "540x720"],
-                "1:1": ["540x540"]
+                "21:9": ["1280x576", "576x1280"],
+                "16:9": ["1024x576", "576x1024"],   # Changed from 960x576 to 1024x576
+                "4:3": ["768x576", "576x768"],       # Changed from 704x576 to 768x576
+                "1:1": ["576x576"]
             },
             "480p": {
-                "21:9": ["1138x480", "480x1138"],
-                "16:9": ["854x480", "480x854"],
-                "4:3": ["640x480", "480x640"],
-                "1:1": ["480x480"]
+                "21:9": ["1152x512", "512x1152"],   # Changed from 1138x512 to 1152x512
+                "16:9": ["896x512", "512x896"],      # Changed from 854x512 to 896x512
+                "4:3": ["704x512", "512x704"],       # Changed from 640x512 to 704x512
+                "1:1": ["512x512"]
             }
         }
 
@@ -46,6 +46,13 @@ class WanResolutionPresets:
 
     CATEGORY = "utils"
 
+    @staticmethod
+    def get_note():
+        return """Wan2.1 Video Compatibility:
+- All output dimensions divisible by 64
+- Matches Wan Image-to-Video Scaler presets
+- Ensures compatibility with Wan2.1 text-to-video generation"""
+
     def get_resolution(self, size, aspect_ratio, orientation):
         # Get the available resolutions for the selected size and aspect ratio
         resolutions = self.resolution_groups[size].get(aspect_ratio, [])
@@ -60,6 +67,11 @@ class WanResolutionPresets:
             resolution = resolutions[-1]  # Last item is portrait (height > width)
         
         width, height = map(int, resolution.split('x'))
+        
+        # Final verification (should always pass since we're using the same groups as WanImageToVideoScaler)
+        if width % 64 != 0 or height % 64 != 0:
+            raise ValueError(f"Resolution {width}x{height} is not divisible by 64")
+            
         return (width, height)
 
 NODE_CLASS_MAPPINGS = {
@@ -67,5 +79,5 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "WanResolutionPresets": "🟦 Wan Video Resolution Presets"
+    "WanResolutionPresets": "🟦 Wan Video Resolution Presets (Wan2.1 Optimized)"
 }
