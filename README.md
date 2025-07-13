@@ -21,6 +21,7 @@ This node uses logic to maintain the aspect ratio of your source image, be it po
 
 The options for the Aspect Ratio are Auto, 16:9, 4:3 and 1:1.  
 • Auto will preserve your source image's original aspect ratio and scale it to the desired Size, rounding to the nearest size divisible by 64 to ensure compatibility with Wan2.1.  This will preserve the source image in its entirety, making sure that the sizing works with Wan2.1.  If you just want to scale your image and hit a general size resolution (e.g. 480p), leave this at auto.
+
 • 16:9, 4:3 and 1:1 will scale your image to the respective format.  If your source image wasn't in in the chosen aspect ratio to begin with, the Proportion Fix options will come into play.  For example, if your source image is 16:9 and you choose a 4:3 aspect ratio, the image will be scaled to 4:3, but how it handles the disproportionate aspect ratio is determined by the Proportion Fix settings.
 
 *Proportion Fix Options:*
