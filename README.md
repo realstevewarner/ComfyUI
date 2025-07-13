@@ -1,13 +1,13 @@
 # ComfyUI-stevewarner
 Here are a few quality of life nodes for ComfyUI.  
 
-#Image to Scalar Node:
+**Image to Scalar Node:**
 
 <img width="471" height="269" alt="Image to Scalar" src="https://github.com/user-attachments/assets/771c5ef9-b901-437f-9eb3-1aab6f9233c8" />
 
 This is designed to be used in the Image 2 Video workflows for Wan2.1.  It simplifies the sizing of your starting image into a resolution and aspect ratio that will work great with Wan2.1.  Just plug in your image, choose a resolution from the Size popup menu, set your aspect ratio and your proportion fix method.  The node will scale your image and ensure it's Wan2.1 ready.  
 
-Size Options:
+<u>Size Options:</u>
 
 <img width="512" height="296" alt="Size Options" src="https://github.com/user-attachments/assets/459cdfc6-a940-4819-b86a-a1af6ded49cd" />
 
@@ -39,7 +39,7 @@ Usage:
 
 This node can be plugged into any image generation workflow.  It outputs the scaled image along with the width and height.  If you want to test it out, simply load an image, connect it to the node, and then run a preview node out of the scaler.  You can then play with the various settings to see how it handles different use cases.
 
-#Resolution Preset Node:
+**Resolution Preset Node:**
 
 <img width="566" height="240" alt="Resolution Preset" src="https://github.com/user-attachments/assets/d844cb7b-a964-4935-ace3-f8a59e512d1c" />
 
