@@ -1,6 +1,8 @@
 # ComfyUI-stevewarner
 Here are a few quality of life nodes for ComfyUI.  
 
+These nodes don't have dependencies and have no install requirements.  Just download the python files (you can git clone the repo if you'd like) and drop them into the root of your ComfyUI Custom Nodes folder.  Restart Comfy and they should show up when you search.  Double click on a blank area of your workflow and type "wan scale" or "wan resolution" and you should see them.
+
 **Image to Scalar Node:**
 
 <img width="471" height="269" alt="Image to Scalar" src="https://github.com/user-attachments/assets/771c5ef9-b901-437f-9eb3-1aab6f9233c8" />
